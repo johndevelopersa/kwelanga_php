@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
           <div class="stripe consistent-height">
             <div class="row justify-content-center">
               <div class="col-md-3 text-center">
-                <label for="document_ref" class="form-label">Document number aa</label>
+                <label for="document_ref" class="form-label">Document number a</label>
               </div>
               <div class="col-md-3">
                 <input type="text" class="form-control custom-input-height" name="document_ref" value="<?php echo htmlspecialchars($document_ref); ?>">
