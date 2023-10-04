@@ -88,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
       $message = $result;
       $mode="U";
       $_SESSION['mode'] = $mode;
+      echo "Mode: $mode, Session Mode: {$_SESSION['mode']}";
       //$message = 'Error: query failed ' . $dbConn->
       //error;
     }
