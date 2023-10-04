@@ -1,0 +1,122 @@
+/* ====== Popup Styles ======*/
+.customPopupOuterWrapper {
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn 200ms ease-in forwards;
+}
+.customPopupOuterWrapper .customPopup {
+    width: 600px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px -3px var(--dark);
+    animation: grow 200ms ease-in forwards;
+}
+.customPopupOuterWrapper .customPopup.hide {
+    animation: hidePopup 400ms ease-out forwards;
+}
+.customPopupOuterWrapper .customPopup .image {
+    width: 20%;
+}
+.customPopupOuterWrapper .customPopup .image img {
+    width: 100%;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper {
+    width: 80%;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .content {
+    width: 100%;
+    margin-left: 20px;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .content .header {
+    font-size: 22px;
+    font-weight: bolder;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .content .text {
+    width: 90%;
+    padding: 10px 0;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .content input {
+    width: 80%;
+    padding: 5px 10px;
+    border-color: var(--secondary);
+    border-radius: 5px;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons {
+    width: 100%;
+    padding-bottom: 10px;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button {
+    padding: 5px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ====== Actions Button colors ======*/
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(1) {
+   color: var(--white);
+   background-color: var(--primary);
+   border: solid 2px var(--primary);
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(2) {
+    color: var(--dark);
+    background-color: var(--white);
+    border: solid 2px var(--white);
+}
+
+/* ====== Popup Events ======*/
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button:active {
+    transform: translateY(1px);
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(1):hover {
+    color: var(--dark);
+    background-color: transparent;
+}
+.customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(2):hover {
+    color: var(--dark);
+    border: solid 2px var(--muted);
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 900px) {
+    .customPopupOuterWrapper .customPopup {
+        width: 95%;
+        flex-direction: column !important;
+    }
+
+    .customPopupOuterWrapper .customPopup .image {
+        width: 35%;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper .content {
+        margin-left: 0;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper .buttons {
+        justify-content: space-around !important;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(1),
+    .customPopupOuterWrapper .customPopup .contentWrapper .buttons button:nth-child(2) {
+        width: 50%;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper .content .header {
+        text-align: center;
+    }
+
+    .customPopupOuterWrapper .customPopup .contentWrapper .content .text {
+        text-align: center;
+    }
+}

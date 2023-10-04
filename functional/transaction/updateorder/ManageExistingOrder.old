@@ -1,0 +1,106 @@
+<?php
+    include_once('ROOT.php'); include_once($ROOT.'PHPINI.php');
+    require_once($ROOT.$PHPFOLDER."functional/main/access_control.php");
+    include_once($ROOT.$PHPFOLDER."properties/Constants.php");
+    include_once($ROOT.$PHPFOLDER.'libs/GUICommonUtils.php');
+    include_once($ROOT.$PHPFOLDER.'functional/transaction/updateorder/ManageExistingOrderScreens.php');
+    
+    global $ROOT, $PHPFOLDER;
+    
+    $docUid = ((isset($_GET["DOCUID"]))?$_GET["DOCUID"]:"");
+
+    if (!isset($_SESSION)) session_start() ;
+      $userUId     = $_SESSION['user_id'] ;
+      $principalId = $_SESSION['principal_id'] ;
+      
+      //Create new database object
+      $dbConn = new dbConnect(); $dbConn->dbConnection();
+?>
+<!DOCTYPE html>
+<HTML>
+  <HEAD>
+
+		<TITLE>Order Management Selection></TITLE>
+
+    <link href='<?php echo $DHTMLROOT.$PHPFOLDER ?>css/1_kwelanga.css' rel='stylesheet' type='text/css'>
+    <link href='<?php echo $DHTMLROOT.$PHPFOLDER ?>css/kos_standard_screen2.css' rel='stylesheet' type='text/css'> 
+		<script type="text/javascript" language="javascript" src="<?php echo $DHTMLROOT.$PHPFOLDER ?>js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo $DHTMLROOT.$PHPFOLDER ?>js/dops_global_functions.js"></script>
+
+    <style>
+.tooltip {
+  position: relative;
+  display: block;
+  padding: 0px  0px 0px  0px'
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+
+   </HEAD>
+   <body>
+   <?php
+
+      
+      if (isset($_POST['CANFORM'])) {
+          return;	
+      }
+      $class = 'even';
+      
+// ********************************************************************************************************************************	     
+     
+     if (!isset($_POST['select']) && !isset($_POST['finish'])){
+     	
+     	$ManageExistingOrder = new ManageExistingOrderScreens();
+  		$a = $ManageExistingOrder->selectItemToManage($docUid);
+     	
+     }
+ 
+ 
+ 
+
+// ********************************************************************************************************************************	      
+
+   ?>      
+	</body>       
+ </HTML>
+<?php 
+
+ function test_input($data) {
+
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  
+  return $data;
+ }
+?> 

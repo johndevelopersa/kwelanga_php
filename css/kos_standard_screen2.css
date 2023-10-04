@@ -1,0 +1,60 @@
+
+/*css*/
+#ignore{}
+     html {}
+
+     body      {background-color: transparent;
+                font-family: Calibri, Verdana, Ariel, sans-serif;
+                font-size: 14px;
+                color:#444;}
+     
+      td.head1 {font-weight:bold;
+                font-size:18px;text-align:left; 
+                font-family: Calibri, Verdana, Ariel, sans-serif; 
+                padding: 0px 0px 0px 0px; }
+
+      td.head2 {font-weight:bold;
+                font-size:22px; 
+                font-family: Calibri, Verdana, Ariel, sans-serif; 
+                padding: 0px 0px 0px 0px; }
+                
+      td.det1  {border-style:none; 
+                text-align: left; 
+                font-weight: bold; 
+                font-size: 13px;}
+
+      td.det2  {border-style:none; 
+                text-align: left; 
+                font-weight: normal; 
+                font-size: 13px;}
+                
+      td.det3  {border-style:none; 
+                text-align: left;
+                font-style: italic; 
+                font-weight: normal; 
+                font-size: 9px;}
+                
+      td.detB10 {border-style:none; 
+                  text-align: left;
+                  font-weight: bold; 
+                  font-size: 10px;} 
+                
+      td.detN10 {border-style:none; 
+                  text-align: left;
+                  font-weight: normal; 
+                  font-size: 10px;}
+
+      td.detN12 {border-style:none; 
+                  text-align: left;
+                  font-weight: normal; 
+                  font-size: 12px;}
+                  
+      td.detB12 {border-style:none; 
+                  text-align: left;
+                  font-weight: bold; 
+                  font-size: 12px;}
+
+      table.box {border:collapse;
+      	         border: 2px solid; 
+      	         border-color: #990000; 
+      	         background: #fcecec; }                        

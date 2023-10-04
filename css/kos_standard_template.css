@@ -1,0 +1,160 @@
+
+/*css*/
+html {}
+
+#wrapper{width:700px;text-align:left;}
+   
+#toolbar {font-size:12px;
+	        background:#047;
+	        padding:8px 10px}
+
+#toolbar a img{margin:2px 5px 2px 0px;}
+
+#toolbar a:hover{background:aliceBlue}
+
+#toolbar a{margin-right:10px;
+	         float:left;
+	         background:#fff;
+	         text-align:left;
+	         display:block;
+	         border:1px solid #047;
+	         padding:0px 8px;
+	         line-height:36px;
+	         text-decoration:none;
+	         color:#666;
+	         font-weight:bold;}
+ 
+ #block{background:#fff;
+ 	      padding:10px 5px;
+ 	      border:1px solid #ccc;}
+ 	     
+
+.dtitle{text-align:left;} 	     
+ 	      
+
+   
+/* print styles */
+@media print { #noprint {visibility:hidden;
+                        display:none;
+                        }
+               #wrapper {border:0px;
+                        }
+               #block {padding:10px 0px;
+               	       border:0px;
+               	       }
+               #page-break{page-break-after: always; 
+               	           display: block;
+               	          }
+}
+/* Standard text headings  S20 */
+td.dc {background-color:white; 
+       color:black; 
+       font-weight:bold; 
+       font-size:20px;}
+
+/* Standard text headings  S18 */
+td.dc2 {background-color:white; 
+        color:black; 
+        font-weight:bold; 
+        font-size:18px;}
+/* Standard text headings  S15 */
+td.dc3h {background-color:white; 
+         color:black; 
+         font-weight:bold;
+         font-size:15px;}
+
+/* Standard text   S15 */     
+td.dc3  {background-color:white; 
+         color:black; 
+         font-weight:normal; 
+         font-size:15px;}
+
+/* Standard text Heading    S12 */     
+td.dc12h  {background-color:white; 
+         color:black; 
+         font-weight:bold; 
+         font-size:12px;}         
+
+/* Standard text   S12 */     
+td.dc12  {background-color:white; 
+         color:black; 
+         font-weight:normal; 
+         font-size:12px;}         
+
+td.th1 {text-align:left; 
+        font-size:15px;
+        font-weight:bold; 
+        background-color:white; 
+        border-collapse:collapse; 
+        border-left-style:solid; border-left-width:1px; border-left-color:black;
+        border-right-style:solid; border-right-width:1px; border-right-color:black;
+        border-top-style:solid; border-top-width:1px; border-top-color:black;
+        border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:black;}
+
+td.th12 {text-align:left; 
+        font-size:12px;
+        font-weight:bold; 
+        background-color:white; 
+        border-collapse:collapse; 
+        border-left-style:solid; border-left-width:1px; border-left-color:black;
+        border-right-style:solid; border-right-width:1px; border-right-color:black;
+        border-top-style:solid; border-top-width:1px; border-top-color:black;
+        border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:black;}
+
+td.th13 {text-align:left; 
+        font-size:13px;
+        font-weight:bold; 
+        background-color:white; 
+        border-collapse:collapse; 
+        border-left-style:solid; border-left-width:1px; border-left-color:black;
+        border-right-style:solid; border-right-width:1px; border-right-color:black;
+        border-top-style:solid; border-top-width:1px; border-top-color:black;
+        border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:black;}
+
+
+        
+td.dc5 {background-color:white; 
+        font-weight:normal; 
+        font-size:12px;
+        border-collapse:collapse;
+        border-left-style:solid;  border-left-color:black;  border-left-width:1px;
+        border-right-style:solid; border-right-color:black; border-right-width:1px;  }
+        
+td.dc6 {border-collapse:collapse;                                                 
+        border-top-style:solid; 
+        border-top-color:black;
+        border-top-width:1px;}     
+
+td.dc8 {border-collapse:collapse;
+        border-style:solid solid solid solid; 
+        border-color:black; 
+        border-width:1px; } 
+	      
+td.dc7 {border-collapse: collapse;
+        border-bottom-style:solid;   
+        border-bottom-color:black;   
+        border-bottom-width:1px; } 	
+        
+td.dc13b {background-color:white; 
+         font-weight:bold; 
+         font-size:13px;  
+       }  
+td.dc13  {background-color:white; 
+         font-weight:normal;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size:13px;  
+       }                 
+td.lr { border-collapse:collapse;
+        border-left-style:solid;  border-left-color:black;  border-left-width:1px;
+        border-right-style:solid; border-right-color:black; border-right-width:1px;  } 
+        
+td.dc15b {background-color:white; 
+         font-weight:bold; 
+         font-size:15px; }
+           
+td.dc15  {background-color:white; 
+         font-weight:normal; 
+         font-size:15px; }  
+        
+        
+                                               	      

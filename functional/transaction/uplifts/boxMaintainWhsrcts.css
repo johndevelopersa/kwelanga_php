@@ -1,0 +1,33 @@
+body {
+	background-color: transparent;
+	font-family: Calibri, Verdana, Ariel, sans-serif;
+	font-size: 14px;
+        color:#444;
+}
+
+.outer-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 75%;
+    margin: auto;
+}
+
+.stripe:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.stripe:nth-child(odd) {
+    background-color: #E9E9E9;
+}
+
+.custom-button {
+    background-color: black;
+    color: white;
+}
+
+.updated-message {
+    background-color: lightgreen;
+    width: 20%;
+    margin: left;
+    text-align: left;
+}

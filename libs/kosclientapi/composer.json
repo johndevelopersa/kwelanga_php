@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    {
+	  "type": "vcs",
+      "url": "https://github.com/kwelanga/php-api-client.git"
+    }
+  ],
+  "require": {
+    "kwelanga/php-api-client": "*@dev",
+    "ext-json": "*"
+  }
+}

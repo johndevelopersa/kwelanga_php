@@ -1,0 +1,116 @@
+<?php
+
+$sendXML = '<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:inv="http://pnpportal.co.za/InvoiceEanUcc">
+  	<SOAP:Header>
+      <inv:Security>
+         <inv:UsernameToken>
+            <inv:Username>&&var_username&&</inv:Username>
+            <inv:Password>&&var_password&&</inv:Password>
+         </inv:UsernameToken>
+      </inv:Security>
+   </SOAP:Header>
+  	<SOAP:Body>
+  		<sh:StandardBusinessDocument xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:eanucc="urn:ean.ucc:2" xmlns:pay="urn:ean.ucc:pay:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ean.ucc:2 ../Schemas/InvoiceProxy.xsd http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader ../Schemas/sbdh/StandardBusinessDocumentHeader.xsd">
+      <sh:StandardBusinessDocumentHeader>
+          <sh:HeaderVersion>1.0</sh:HeaderVersion>
+          <sh:Sender>
+              <sh:Identifier Authority="EAN.UCC">&&var_rtGLN&&</sh:Identifier>
+          </sh:Sender>
+          <sh:Receiver>
+              <sh:Identifier Authority="EAN.UCC">&&var_storeGLN&&</sh:Identifier>
+          </sh:Receiver>
+          <sh:DocumentIdentification>
+              <sh:Standard>EAN.UCC</sh:Standard>
+              <sh:TypeVersion>2.5</sh:TypeVersion>
+              <sh:InstanceIdentifier>100002</sh:InstanceIdentifier>
+              <sh:Type>Invoice</sh:Type>
+              <sh:MultipleType>false</sh:MultipleType>
+              <sh:CreationDateAndTime>2009-08-12T11:00:00.000</sh:CreationDateAndTime>
+          </sh:DocumentIdentification>
+      </sh:StandardBusinessDocumentHeader>
+      <eanucc:message>
+          <entityIdentification>
+              <uniqueCreatorIdentification>&&var_uniqueCreatorId&&</uniqueCreatorIdentification>
+              <contentOwner>
+                  <gln>&&var_principalGLN&&</gln>
+              </contentOwner>
+          </entityIdentification>
+          <eanucc:transaction>
+              <entityIdentification>
+                  <uniqueCreatorIdentification>&&var_uniqueCreatorId&&</uniqueCreatorIdentification>
+                  <contentOwner>
+                      <gln>&&var_principalGLN&&</gln>
+                  </contentOwner>
+              </entityIdentification>
+              <command>
+                  <eanucc:documentCommand>
+                      <documentCommandHeader type="ADD">
+                          <entityIdentification>
+                              <uniqueCreatorIdentification>&&var_uniqueCreatorId&&</uniqueCreatorIdentification>
+                              <contentOwner>
+                                  <gln>&&var_principalGLN&&</gln>
+                              </contentOwner>
+                          </entityIdentification>
+                      </documentCommandHeader>
+                      <documentCommandOperand>
+                          <pay:invoice creationDateTime="&&var_invoiceCreationDateTime&&" documentStatus="COPY">
+                              <contentVersion>
+                                  <versionIdentification>2.5</versionIdentification>
+                              </contentVersion>
+                              <documentStructureVersion>
+                                  <versionIdentification>2.5</versionIdentification>
+                              </documentStructureVersion>
+                              <invoiceIdentification>
+                                  <uniqueCreatorIdentification>&&var_invoiceNumber&&</uniqueCreatorIdentification>
+                                  <contentOwner>
+                                      <gln>&&var_principalGLN&&</gln>
+                                  </contentOwner>
+                              </invoiceIdentification>
+                              <invoiceCurrency>
+                                  <currencyISOCode>ZAR</currencyISOCode>
+                              </invoiceCurrency>
+                              <invoiceType>INVOICE</invoiceType>
+                              <countryOfSupplyOfGoods>
+                                  <countryISOCode>ZA</countryISOCode>
+                              </countryOfSupplyOfGoods>
+                              <shipTo>
+                                  <gln>&&var_storeGLN&&</gln>
+                              </shipTo>
+                              <buyer>
+                                  <partyIdentification>
+                                      <gln>&&var_storeGLN&&</gln>
+                                  </partyIdentification>
+                              </buyer>
+                              <seller>
+                                  <partyIdentification>
+                                      <gln>&&var_principalGLN&&</gln>
+                                  </partyIdentification>
+                                  <extension>
+                                      <vat:vATInvoicePartyExtension xmlns:vat="urn:ean.ucc:pay:vat:2" xsi:schemaLocation="urn:ean.ucc:pay:vat:2 ../Schemas/Invoice_VATExtensionProxy.xsd">
+                                          <vATRegistrationNumber>&&var_sellerVATNumber&&</vATRegistrationNumber>
+                                      </vat:vATInvoicePartyExtension>
+                                  </extension>
+                              </seller>
+                              &&var_invoiceDetailLines&&
+                              <invoiceTotals>
+                                  <totalInvoiceAmount>&&var_invoiceTotalInclusive&&</totalInvoiceAmount>
+                                  <totalLineAmountInclusiveAllowancesCharges>&&var_invoiceTotalExclusive&&</totalLineAmountInclusiveAllowancesCharges>
+                                  <totalTaxAmount>&&var_invoiceTotalVatAmount&&</totalTaxAmount>
+                              </invoiceTotals>
+                              <orderIdentification>
+                                  <uniqueCreatorIdentification>&&var_purchaseOrderReference&&</uniqueCreatorIdentification>
+                                  <contentOwner>
+                                      <gln>&&var_storeGLN&&</gln>
+                                  </contentOwner>
+                              </orderIdentification>
+                          </pay:invoice>
+                      </documentCommandOperand>
+                  </eanucc:documentCommand>
+              </command>
+          </eanucc:transaction>
+      </eanucc:message>
+  </sh:StandardBusinessDocument>
+	</SOAP:Body>
+</SOAP:Envelope>';
+
+?>

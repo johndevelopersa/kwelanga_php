@@ -1,0 +1,65 @@
+ul{list-style-type: none;margin:0;padding:0;}
+
+#calendar{
+position: absolute;
+width: 240px;
+display:block;
+text-align: center;
+margin: 5px auto;
+border: 1px solid #999;
+background-color: #fff;
+font: 11px Trebuchet MS;
+-webkit-border-radius: 5px; 
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-shadow: 1px 2px 6px rgba(0,0,0,.6);
+-moz-box-shadow: 1px 2px 6px rgba(0,0,0,.6);
+box-shadow: 1px 2px 6px rgba(0,0,0,.6);	
+}
+
+.months, .emptM, .headDay, .dayNormal, .dayBlank, .dayDisabled, .dayWeekend, .dayCurrent, .yearBrowse, .monthDisabled, .currMonth, #closeBtn  {
+margin: 0px;
+padding: 0;
+width: 40px;
+height: 18px;
+line-height: 18px;
+float: left;
+text-align: center;
+color: #000;
+display: inline;
+}
+
+.emptM, .dayDisabled, .monthDisabled{color: #888;}
+.headDay{
+color:#047;
+margin-top:4px;
+background-color: aliceBlue;
+border:1px solid lightSkyBlue;
+border-right:0px;
+border-left:0px;
+}
+.headDay, .dayNormal, .dayBlank, .dayWeekend, .dayCurrent, .dayDisabled{width: 34px;}
+.dayBlank{background-color: #fff;}
+.dayWeekend{background-color: lightSkyBlue}
+.currMonth{background-color: #024AA7}
+.dayCurrent{background-color:#DD2323;}
+#days{margin-left: 1px; width: 250px;clear:above;}
+#days li{height: 20px;line-height: 20px;}
+.months a, #days a, .currMonth a{color: #09F; text-decoration: none; display: block;}
+.months a:hover{background-color:lightSkyBlue;text-decoration: none;font-weight:bold;color: #FFF;}
+#days a{color: #000;}
+#days .dayCurrent a{color: #fff;font-weight:bold;font-size:1.1em;}
+#days a:hover{color:#fff;font-weight:bold;background-color:#024AA7;}
+.currMonth a,.currMonth a:hover{color: #FFF;text-decoration: none;font-weight:bold;font-size:1.1em;
+}
+.yearBrowse {font-size:16px;width: 240px; background-color: #FFF; line-height: 18px;padding:2px 0px 4px 0px;color:#047;display:block;}
+.yearBrowse span,.yearBrowse a {font-size:20px;font-weight: bold;color:#666;}
+.yearBrowse a {text-decoration: none; color: #f30; }
+.yearBrowse b{margin: 0 8px}
+#closeBtn a {display:block;width:16px;height:16px;background-image:url('../images/delete-icon-small.png');background-repeat:no-repeat;margin-top:-1px;}
+#closeBtn{float:right;width:18px;margin-left:-18px;font-size:1px;text-align:right;}
+
+.dayCurrent, .currMonth,.months a:hover,#days a:hover{
+-webkit-border-radius: 3px; 
+-moz-border-radius: 3px;
+border-radius: 3px;}

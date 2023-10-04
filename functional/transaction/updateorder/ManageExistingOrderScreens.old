@@ -1,0 +1,168 @@
+<?php 
+include_once('ROOT.php'); 
+include_once($ROOT.'PHPINI.php');	
+include_once($ROOT.$PHPFOLDER.'libs/GUICommonUtils.php');
+include_once($ROOT.$PHPFOLDER."DAO/db_Connection_Class.php");
+include_once($ROOT.$PHPFOLDER."DAO/MaintenanceDAO.php");
+include_once($ROOT.$PHPFOLDER."elements/messages.php");
+
+
+
+class ManageExistingOrderScreens {
+	
+      function __construct() {
+
+         global $ROOT, $PHPFOLDER, $dbConn;
+         $this->dbConn = $dbConn;
+      }	
+
+// ********************************************************************************************************************************************************
+      public function selectItemToManage($docUid) {
+      	
+          $class = 'even';
+          $manageOrders = new MaintenanceDAO($this->dbConn);
+          $orderArr     = $manageOrders->getOrderDetailsToManage($docUid) ;
+          ?>
+    <center>
+       <FORM name='Select Action' method=post action=''>
+            <table width="700"; style="border:none">
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7";>&nbsp;</td>
+               </tr>	    
+                   <td Colspan="7"; class="head1" style="text-align:center;" >Select Order Manage Action</td>
+               </tr>	    
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>     	
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td style="width: 2%; border:none">&nbsp;</td>
+                 <td style="width: 18%; border:none">&nbsp;</td>
+                 <td style="width: 30%; border:none">&nbsp;</td>
+                 <td style="width: 18%; border:none">&nbsp;</td>
+                 <td style="width: 25%; border:none">&nbsp;</td>
+                 <td style="width: 5%;  border:none">&nbsp;</td>
+                 <td style="width: 2%;  border:none">&nbsp;</td>
+               </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td style="border:none">&nbsp;</td>
+                 <td class="det1" style="text-align:right;">Document</td>
+                 <td class="det2" style="text-align:left;"><?php echo ltrim($orderArr[0]['document_number'],'0'); ?></td>
+                 <td class="det1" style="border:none">Customer</td>
+                 <td class="det2" Colspan="2" style="border:none"><?php echo trim($orderArr[0]['store']); ?></td>
+                 <td style="border:none">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td style="border:none">&nbsp</td>
+                 <td class="det1" style="text-align:right;">Status</td>
+                 <td class="det2" style="text-align:left;"><?php echo ltrim($orderArr[0]['status'],'0'); ?></td>
+                 <td class="det1" style="border:none">Warehouse</td>
+                 <td class="det2" Colspan="2" style="border:none"><?php echo trim($orderArr[0]['wh']); ?></td>
+                 <td style="border:none">&nbsp</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Change or Add PO / reference</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "AMENDREF"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Manage Warehouse on Order</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "CHANGEWH" disabled></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Amend Order</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "AMENDORD"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Un cancel Order</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "UNCANCEL"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Reset Invoiced Status</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "RESETINV"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Reset Status to Invoiced<br>OTP Required</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Reset Delivery and POD OK</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "RESETDOC"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                   <td Colspan = "7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>";>
+                 <td colspan="2">&nbsp;</td> 
+                 <td colspan="2" class="det1" style="text-align:left;">Manage Warehouse on Order</td>
+                 <td class="det2" style="text-align:center;"><INPUT TYPE="radio" name="ACTIONTYPE" value= "CHANGEWH"></td>
+                 <td colspan="1" class="tooltip" style="text-align:left;"><span><IMG src= <?php echo HOST_KOSSERVER_PHPFOLDER_AS_USER . "images/info-icon-small.png";?>></span><span class="tooltiptext">Tip<br>Add/change PO Number</span></td>                  
+                 <td colspan="1">&nbsp;</td> 
+                </tr>
+
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td Colspan="7">&nbsp;</td>
+               </tr>
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td Colspan="7">&nbsp;</td>
+               </tr>              <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td colspan="7"; style="text-align:center;"><INPUT TYPE="submit" class="submit" name="firstform" value= "Get Invoice Details">
+                                                             <INPUT TYPE="submit" class="submit" name="canform"   value= "Cancel"></td>
+               </tr>          
+               <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                 <td Colspan="7">&nbsp;</td>
+               </tr>  
+ 			    	</table>
+		   </form>
+    </center> 
+          
+          <?php 
+             	
+      	
+      	
+      }
+
+}
+
+
+?>

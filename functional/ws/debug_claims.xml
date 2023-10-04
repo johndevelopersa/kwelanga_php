@@ -1,0 +1,2310 @@
+array (
+  'debitCreditIndicator' => 'CREDIT',
+  'adjustmentReason' => 
+  array (
+    'messageReason' => '11_RETURNS_DAMAGE',
+    'sourceCode' => 'X12',
+  ),
+  'amount' => 
+  array (
+    'currencyCode' => 
+    array (
+      'currencyISOCode' => 'ZAR',
+    ),
+    'monetaryAmount' => '139.65',
+  ),
+  'debitCreditReference' => 
+  array (
+    0 => 
+    array (
+      'reference' => 
+      array (
+        'entityIdentification' => 
+        array (
+          'uniqueCreatorIdentification' => '175092',
+          'contentOwner' => 
+          array (
+            'gln' => '6001001313902',
+            'additionalPartyIdentification' => 
+            array (
+              0 => 
+              array (
+                'additionalPartyIdentificationValue' => '31398',
+                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+              ),
+              1 => 
+              array (
+                'additionalPartyIdentificationValue' => 'CHECKERS SAINTS',
+                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+              ),
+            ),
+          ),
+        ),
+        '!entityType' => '3',
+      ),
+      'creationDate' => '2015-08-20',
+    ),
+    1 => 
+    array (
+      'reference' => 
+      array (
+        'entityIdentification' => 
+        array (
+          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+          'contentOwner' => 
+          array (
+            'gln' => '0000000000000',
+          ),
+        ),
+        '!entityType' => '4',
+      ),
+    ),
+  ),
+  'subLineDetail' => 
+  array (
+    'tradeItemIdentification' => 
+    array (
+      'gtin' => '06002531000515',
+      'additionalTradeItemIdentification' => 
+      array (
+        0 => 
+        array (
+          'additionalTradeItemIdentificationValue' => '1551651',
+          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+        ),
+        1 => 
+        array (
+          'additionalTradeItemIdentificationValue' => 'BIRD FOOD CANARY BRENNCO 1KG PACK',
+          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+        ),
+        2 => 
+        array (
+          'additionalTradeItemIdentificationValue' => '570-10X1',
+          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+        ),
+      ),
+    ),
+    'quantity' => '1',
+  ),
+  '!number' => '01',
+)
+array (
+  'StandardBusinessDocument' => 
+  array (
+    'StandardBusinessDocumentHeader' => 
+    array (
+      'HeaderVersion' => '2.2',
+      'Sender' => 
+      array (
+        'Identifier' => 
+        array (
+          '!Authority' => 'EAN.UCC',
+          '!' => '6001001030007',
+        ),
+      ),
+      'Receiver' => 
+      array (
+        'Identifier' => 
+        array (
+          '!Authority' => 'EAN.UCC',
+          '!' => '0000000000000',
+        ),
+      ),
+      'DocumentIdentification' => 
+      array (
+        'Standard' => 'EAN.UCC',
+        'TypeVersion' => '2.0.2',
+        'InstanceIdentifier' => '620540',
+        'Type' => 'debitCreditAdvice',
+        'MultipleType' => 'false',
+        'CreationDateAndTime' => '2015-08-27T12:11:26',
+      ),
+    ),
+    'message' => 
+    array (
+      'entityIdentification' => 
+      array (
+        'uniqueCreatorIdentification' => 'msg-619640-20150827',
+        'contentOwner' => 
+        array (
+          'gln' => '6001001030007',
+          'additionalPartyIdentification' => 
+          array (
+            'additionalPartyIdentificationValue' => '3008',
+            'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+          ),
+        ),
+      ),
+      'documentCommand' => 
+      array (
+        'documentCommandHeader' => 
+        array (
+          'entityIdentification' => 
+          array (
+            'uniqueCreatorIdentification' => 'cmd-619640-20150827',
+            'contentOwner' => 
+            array (
+              'gln' => '6001001030007',
+              'additionalPartyIdentification' => 
+              array (
+                'additionalPartyIdentificationValue' => '3008',
+                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+              ),
+            ),
+          ),
+        ),
+        'documentCommandOperand' => 
+        array (
+          'debitCreditAdvice' => 
+          array (
+            0 => 
+            array (
+              'contentVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'documentStructureVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'debitCreditAdviceIdentification' => 
+              array (
+                'uniqueCreatorIdentification' => '312750',
+                'contentOwner' => 
+                array (
+                  'gln' => '6001001038201',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '3820',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'PORT ELIZABETH DAO',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'netSummary' => 
+              array (
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '95.25',
+                ),
+                'debitCreditIndicator' => 'CREDIT',
+              ),
+              'buyerSellerPartyIdentification' => 
+              array (
+                'buyerIdentification' => 
+                array (
+                  'gln' => '6001001509008',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '50908',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'CHECKERS MOFFETT ON MAIN',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+                'sellerIdentification' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '828068',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BRENNCO BRANDS - A DIV OF FELTEX',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'debitCreditDetail' => 
+              array (
+                0 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '39.69',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '312750',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001509008',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '50908',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS MOFFETT ON MAIN',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'SINDILE-FZJ 037 EC',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000492',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '2361170',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD BUDGIE BRENCO 1KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '530-20X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '3',
+                  ),
+                  '!number' => '01',
+                ),
+                1 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '27.86',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '312750',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001509008',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '50908',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS MOFFETT ON MAIN',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'SINDILE-FZJ 037 EC',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000508',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '2841205',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD MIXED BRENNCO 1KG BAG',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '540-20X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '2',
+                  ),
+                  '!number' => '02',
+                ),
+                2 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '27.70',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '312750',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001509008',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '50908',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS MOFFETT ON MAIN',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'SINDILE-FZJ 037 EC',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000287',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1020591',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD MIXED BRENNCO 2KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '540-10X2',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '03',
+                ),
+              ),
+              'extension' => 
+              array (
+                'claimExtension' => 
+                array (
+                  'companyRegistrationDetail' => 
+                  array (
+                    'name' => 'Shoprite Checkers (Pty) Ltd.',
+                    'companyRegistrationNumber' => '05/34105/07',
+                    'streetAddressOne' => 'No REG ADD1',
+                    'streetAddressTwo' => 'No REG ADD2',
+                    'postalCode' => 'No PCODE',
+                    'city' => 'No REG CITY',
+                    'countryCode' => 'ZA',
+                    'languageOfTheParty' => 'EN',
+                  ),
+                  'itemInformation' => 
+                  array (
+                    0 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000492',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003311490',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '13.23',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '13.23',
+                      ),
+                      '!number' => '01',
+                    ),
+                    1 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000508',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003311480',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '13.93',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '13.93',
+                      ),
+                      '!number' => '02',
+                    ),
+                    2 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000287',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003311480',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '27.7',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '27.7',
+                      ),
+                      '!number' => '03',
+                    ),
+                  ),
+                ),
+              ),
+              '!creationDateTime' => '2015-08-20T00:00:00',
+              '!documentStatus' => 'COPY',
+            ),
+            1 => 
+            array (
+              'contentVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'documentStructureVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'debitCreditAdviceIdentification' => 
+              array (
+                'uniqueCreatorIdentification' => '324250',
+                'contentOwner' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '33764',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'W/CAPE CHECKERS DAO',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'netSummary' => 
+              array (
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '141.71',
+                ),
+                'debitCreditIndicator' => 'CREDIT',
+              ),
+              'buyerSellerPartyIdentification' => 
+              array (
+                'buyerIdentification' => 
+                array (
+                  'gln' => '6001001052009',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '5204',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'CHECKERS CENTURY CITY',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+                'sellerIdentification' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '828068',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BRENNCO BRANDS - A DIV OF FELTEX',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'debitCreditDetail' => 
+              array (
+                0 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '13.23',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '324250',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001052009',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '5204',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS CENTURY CITY',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'LINDIKHAYA-TGP991GP',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000492',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '2361170',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD BUDGIE BRENCO 1KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '530-20X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '01',
+                ),
+                1 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '110.35',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '324250',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001052009',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '5204',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS CENTURY CITY',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'LINDIKHAYA-TGP991GP',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000287',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1020591',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD MIXED BRENNCO 2KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '540-10X2',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '4',
+                  ),
+                  '!number' => '02',
+                ),
+                2 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '18.13',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '324250',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001052009',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '5204',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS CENTURY CITY',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'LINDIKHAYA-TGP991GP',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000409',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '2403849',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD GARDEN BIRD BRENNCO 2KG PACKET',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '560-10X2',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '03',
+                ),
+              ),
+              'extension' => 
+              array (
+                'claimExtension' => 
+                array (
+                  'companyRegistrationDetail' => 
+                  array (
+                    'name' => 'Shoprite Checkers (Pty) Ltd.',
+                    'companyRegistrationNumber' => '05/34105/07',
+                    'streetAddressOne' => 'No REG ADD1',
+                    'streetAddressTwo' => 'No REG ADD2',
+                    'postalCode' => 'No PCODE',
+                    'city' => 'No REG CITY',
+                    'countryCode' => 'ZA',
+                    'languageOfTheParty' => 'EN',
+                  ),
+                  'itemInformation' => 
+                  array (
+                    0 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000492',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003418541',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '13.23',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '13.23',
+                      ),
+                      '!number' => '01',
+                    ),
+                    1 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000287',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003737266',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '27.59',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '27.59',
+                      ),
+                      '!number' => '02',
+                    ),
+                    2 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000409',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003737266',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '18.13',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '18.13',
+                      ),
+                      '!number' => '03',
+                    ),
+                  ),
+                ),
+              ),
+              '!creationDateTime' => '2015-08-20T00:00:00',
+              '!documentStatus' => 'COPY',
+            ),
+            2 => 
+            array (
+              'contentVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'documentStructureVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'debitCreditAdviceIdentification' => 
+              array (
+                'uniqueCreatorIdentification' => '175092',
+                'contentOwner' => 
+                array (
+                  'gln' => '6001001034609',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '3773',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BLOEMFONTEIN DAO',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'netSummary' => 
+              array (
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '139.65',
+                ),
+                'debitCreditIndicator' => 'CREDIT',
+              ),
+              'buyerSellerPartyIdentification' => 
+              array (
+                'buyerIdentification' => 
+                array (
+                  'gln' => '6001001313902',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '31398',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'CHECKERS SAINTS',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+                'sellerIdentification' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '828068',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BRENNCO BRANDS - A DIV OF FELTEX',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'extension' => 
+              array (
+                'claimExtension' => 
+                array (
+                  'companyRegistrationDetail' => 
+                  array (
+                    'name' => 'Shoprite Checkers (Pty) Ltd.',
+                    'companyRegistrationNumber' => '05/34105/07',
+                    'streetAddressOne' => 'No REG ADD1',
+                    'streetAddressTwo' => 'No REG ADD2',
+                    'postalCode' => 'No PCODE',
+                    'city' => 'No REG CITY',
+                    'countryCode' => 'ZA',
+                    'languageOfTheParty' => 'EN',
+                  ),
+                  'itemInformation' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000515',
+                    ),
+                    'tradeAgreement' => 
+                    array (
+                      'tradeAgreementReferenceNumber' => '2003641479',
+                    ),
+                    'packsize' => 
+                    array (
+                      'value' => '10',
+                    ),
+                    'costPer' => 
+                    array (
+                      'value' => '10',
+                    ),
+                    'grossCost' => 
+                    array (
+                      'currencyCode' => 
+                      array (
+                        'currencyISOCode' => 'ZAR',
+                      ),
+                      'monetaryAmount' => '139.65',
+                    ),
+                    'LocalContractNum' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'LocalCost' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'LocalCostLess' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'AssociatedClaimNo' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'InvoiceWeight' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'SUPPUnitCosts' => 
+                    array (
+                      'value' => '139.65',
+                    ),
+                    '!number' => '01',
+                  ),
+                ),
+              ),
+              '!creationDateTime' => '2015-08-20T00:00:00',
+              '!documentStatus' => 'COPY',
+              'debitCreditDetail' => 
+              array (
+                0 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '139.65',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '175092',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001313902',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '31398',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS SAINTS',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000515',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1551651',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'BIRD FOOD CANARY BRENNCO 1KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '570-10X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '01',
+                ),
+              ),
+            ),
+            3 => 
+            array (
+              'contentVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'documentStructureVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'debitCreditAdviceIdentification' => 
+              array (
+                'uniqueCreatorIdentification' => '336608',
+                'contentOwner' => 
+                array (
+                  'gln' => '6001001034609',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '3773',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BLOEMFONTEIN DAO',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'netSummary' => 
+              array (
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '33.52',
+                ),
+                'debitCreditIndicator' => 'CREDIT',
+              ),
+              'buyerSellerPartyIdentification' => 
+              array (
+                'buyerIdentification' => 
+                array (
+                  'gln' => '6001001461702',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '46171',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'CHECKERS DIAMOND PAVILLION',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+                'sellerIdentification' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '828068',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BRENNCO BRANDS - A DIV OF FELTEX',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'debitCreditDetail' => 
+              array (
+                0 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '10.58',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '336608',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001461702',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '46171',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS DIAMOND PAVILLION',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'MAC-FFF 746 FS',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000522',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1551668',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'HAMSTER FOOD BRENNCO 1KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '610-10X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '01',
+                ),
+                1 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '15.00',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '336608',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001461702',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '46171',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS DIAMOND PAVILLION',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'MAC-FFF 746 FS',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000393',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1020498',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'POULTRY FOOD CRUSHED MAIZE BRENNCO 2KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '180-10X2',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '02',
+                ),
+                2 => 
+                array (
+                  'debitCreditIndicator' => 'CREDIT',
+                  'adjustmentReason' => 
+                  array (
+                    'messageReason' => '11_RETURNS_DAMAGE',
+                    'sourceCode' => 'X12',
+                  ),
+                  'amount' => 
+                  array (
+                    'currencyCode' => 
+                    array (
+                      'currencyISOCode' => 'ZAR',
+                    ),
+                    'monetaryAmount' => '7.94',
+                  ),
+                  'debitCreditReference' => 
+                  array (
+                    0 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => '336608',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '6001001461702',
+                            'additionalPartyIdentification' => 
+                            array (
+                              0 => 
+                              array (
+                                'additionalPartyIdentificationValue' => '46171',
+                                'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                              ),
+                              1 => 
+                              array (
+                                'additionalPartyIdentificationValue' => 'CHECKERS DIAMOND PAVILLION',
+                                'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                              ),
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '3',
+                      ),
+                      'creationDate' => '2015-08-20',
+                    ),
+                    1 => 
+                    array (
+                      'reference' => 
+                      array (
+                        'entityIdentification' => 
+                        array (
+                          'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                          'contentOwner' => 
+                          array (
+                            'gln' => '0000000000000',
+                            'additionalPartyIdentification' => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'MAC-FFF 746 FS',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                            ),
+                          ),
+                        ),
+                        '!entityType' => '4',
+                      ),
+                    ),
+                  ),
+                  'subLineDetail' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000225',
+                      'additionalTradeItemIdentification' => 
+                      array (
+                        0 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '1158645',
+                          'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                        ),
+                        1 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => 'POULTRY FOOD MAIZ CHICK NO2 BRENNCO 1KG PACK',
+                          'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                        ),
+                        2 => 
+                        array (
+                          'additionalTradeItemIdentificationValue' => '401-20X1',
+                          'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                        ),
+                      ),
+                    ),
+                    'quantity' => '1',
+                  ),
+                  '!number' => '03',
+                ),
+              ),
+              'extension' => 
+              array (
+                'claimExtension' => 
+                array (
+                  'companyRegistrationDetail' => 
+                  array (
+                    'name' => 'Shoprite Checkers (Pty) Ltd.',
+                    'companyRegistrationNumber' => '05/34105/07',
+                    'streetAddressOne' => 'No REG ADD1',
+                    'streetAddressTwo' => 'No REG ADD2',
+                    'postalCode' => 'No PCODE',
+                    'city' => 'No REG CITY',
+                    'countryCode' => 'ZA',
+                    'languageOfTheParty' => 'EN',
+                  ),
+                  'itemInformation' => 
+                  array (
+                    0 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000522',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2003641479',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '10.58',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '10.58',
+                      ),
+                      '!number' => '01',
+                    ),
+                    1 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000393',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2001769119',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '15',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '15',
+                      ),
+                      '!number' => '02',
+                    ),
+                    2 => 
+                    array (
+                      'tradeItemIdentification' => 
+                      array (
+                        'gtin' => '06002531000225',
+                      ),
+                      'tradeAgreement' => 
+                      array (
+                        'tradeAgreementReferenceNumber' => '2001769119',
+                      ),
+                      'packsize' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'costPer' => 
+                      array (
+                        'value' => '1',
+                      ),
+                      'grossCost' => 
+                      array (
+                        'currencyCode' => 
+                        array (
+                          'currencyISOCode' => 'ZAR',
+                        ),
+                        'monetaryAmount' => '7.94',
+                      ),
+                      'LocalContractNum' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCost' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'LocalCostLess' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'AssociatedClaimNo' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'InvoiceWeight' => 
+                      array (
+                        'value' => '0',
+                      ),
+                      'SUPPUnitCosts' => 
+                      array (
+                        'value' => '7.94',
+                      ),
+                      '!number' => '03',
+                    ),
+                  ),
+                ),
+              ),
+              '!creationDateTime' => '2015-08-20T00:00:00',
+              '!documentStatus' => 'COPY',
+            ),
+            4 => 
+            array (
+              'contentVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'documentStructureVersion' => 
+              array (
+                'versionIdentification' => '2.0.2',
+              ),
+              'debitCreditAdviceIdentification' => 
+              array (
+                'uniqueCreatorIdentification' => '159083',
+                'contentOwner' => 
+                array (
+                  'gln' => '6001001038201',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '3820',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'PORT ELIZABETH DAO',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'netSummary' => 
+              array (
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '8.75',
+                ),
+                'debitCreditIndicator' => 'CREDIT',
+              ),
+              'buyerSellerPartyIdentification' => 
+              array (
+                'buyerIdentification' => 
+                array (
+                  'gln' => '6001001361903',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '36194',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'SHOPRITE BUTTERWORTH FINGOLAND MALL',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+                'sellerIdentification' => 
+                array (
+                  'gln' => '0000000000000',
+                  'additionalPartyIdentification' => 
+                  array (
+                    0 => 
+                    array (
+                      'additionalPartyIdentificationValue' => '828068',
+                      'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                    ),
+                    1 => 
+                    array (
+                      'additionalPartyIdentificationValue' => 'BRENNCO BRANDS - A DIV OF FELTEX',
+                      'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                    ),
+                  ),
+                ),
+              ),
+              'debitCreditDetail' => 
+              array (
+                'debitCreditIndicator' => 'CREDIT',
+                'adjustmentReason' => 
+                array (
+                  'messageReason' => '11_RETURNS_DAMAGE',
+                  'sourceCode' => 'X12',
+                ),
+                'amount' => 
+                array (
+                  'currencyCode' => 
+                  array (
+                    'currencyISOCode' => 'ZAR',
+                  ),
+                  'monetaryAmount' => '8.75',
+                ),
+                'debitCreditReference' => 
+                array (
+                  0 => 
+                  array (
+                    'reference' => 
+                    array (
+                      'entityIdentification' => 
+                      array (
+                        'uniqueCreatorIdentification' => '159083',
+                        'contentOwner' => 
+                        array (
+                          'gln' => '6001001361903',
+                          'additionalPartyIdentification' => 
+                          array (
+                            0 => 
+                            array (
+                              'additionalPartyIdentificationValue' => '36194',
+                              'additionalPartyIdentificationType' => 'BUYER_ASSIGNED_IDENTIFIER_FOR_A_PARTY',
+                            ),
+                            1 => 
+                            array (
+                              'additionalPartyIdentificationValue' => 'SHOPRITE BUTTERWORTH FINGOLAND MALL',
+                              'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_1',
+                            ),
+                          ),
+                        ),
+                      ),
+                      '!entityType' => '3',
+                    ),
+                    'creationDate' => '2015-08-20',
+                  ),
+                  1 => 
+                  array (
+                    'reference' => 
+                    array (
+                      'entityIdentification' => 
+                      array (
+                        'uniqueCreatorIdentification' => 'TRUCK DETAILS',
+                        'contentOwner' => 
+                        array (
+                          'gln' => '0000000000000',
+                          'additionalPartyIdentification' => 
+                          array (
+                            'additionalPartyIdentificationValue' => 'JONATHAN-HFG 657 EC',
+                            'additionalPartyIdentificationType' => 'FOR_INTERNAL_USE_2',
+                          ),
+                        ),
+                      ),
+                      '!entityType' => '4',
+                    ),
+                  ),
+                ),
+                'subLineDetail' => 
+                array (
+                  'tradeItemIdentification' => 
+                  array (
+                    'gtin' => '06002531000225',
+                    'additionalTradeItemIdentification' => 
+                    array (
+                      0 => 
+                      array (
+                        'additionalTradeItemIdentificationValue' => '1158645',
+                        'additionalTradeItemIdentificationType' => 'BUYER_ASSIGNED',
+                      ),
+                      1 => 
+                      array (
+                        'additionalTradeItemIdentificationValue' => 'POULTRY FOOD MAIZ CHICK NO2 BRENNCO 1KG PACK',
+                        'additionalTradeItemIdentificationType' => 'FOR_INTERNAL_USE_1',
+                      ),
+                      2 => 
+                      array (
+                        'additionalTradeItemIdentificationValue' => '401-20X1',
+                        'additionalTradeItemIdentificationType' => 'SUPPLIER_ASSIGNED',
+                      ),
+                    ),
+                  ),
+                  'quantity' => '1',
+                ),
+                '!number' => '01',
+              ),
+              'extension' => 
+              array (
+                'claimExtension' => 
+                array (
+                  'companyRegistrationDetail' => 
+                  array (
+                    'name' => 'Shoprite Checkers (Pty) Ltd.',
+                    'companyRegistrationNumber' => '05/34105/07',
+                    'streetAddressOne' => 'No REG ADD1',
+                    'streetAddressTwo' => 'No REG ADD2',
+                    'postalCode' => 'No PCODE',
+                    'city' => 'No REG CITY',
+                    'countryCode' => 'ZA',
+                    'languageOfTheParty' => 'EN',
+                  ),
+                  'itemInformation' => 
+                  array (
+                    'tradeItemIdentification' => 
+                    array (
+                      'gtin' => '06002531000225',
+                    ),
+                    'tradeAgreement' => 
+                    array (
+                      'tradeAgreementReferenceNumber' => '2001719891',
+                    ),
+                    'packsize' => 
+                    array (
+                      'value' => '1',
+                    ),
+                    'costPer' => 
+                    array (
+                      'value' => '1',
+                    ),
+                    'grossCost' => 
+                    array (
+                      'currencyCode' => 
+                      array (
+                        'currencyISOCode' => 'ZAR',
+                      ),
+                      'monetaryAmount' => '8.75',
+                    ),
+                    'LocalContractNum' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'LocalCost' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'LocalCostLess' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'AssociatedClaimNo' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'InvoiceWeight' => 
+                    array (
+                      'value' => '0',
+                    ),
+                    'SUPPUnitCosts' => 
+                    array (
+                      'value' => '8.75',
+                    ),
+                    '!number' => '01',
+                  ),
+                ),
+              ),
+              '!creationDateTime' => '2015-08-20T00:00:00',
+              '!documentStatus' => 'COPY',
+            ),
+          ),
+        ),
+      ),
+    ),
+    '!xsi:schemaLocation' => 'http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader ../Schemas/sbdh/StandardBusinessDocumentHeader.xsd urn:ean.ucc:2 ../Schemas/DebitCreditAdviceProxy.xsd http://www.shoprite.co.za ../Schemas/shoprite/ClaimExtension.xsd',
+  ),
+)

@@ -1,0 +1,215 @@
+<?php
+include_once('ROOT.php'); include_once($ROOT.'PHPINI.php');
+require_once($ROOT.$PHPFOLDER."functional/main/access_control.php");
+include_once($ROOT.$PHPFOLDER."DAO/TransactionDAO.php");
+include_once($ROOT.$PHPFOLDER."DAO/ProductDAO.php");
+include_once($ROOT.$PHPFOLDER."DAO/AdministrationDAO.php");
+include_once($ROOT.$PHPFOLDER."DAO/CommonDAO.php");
+include_once($ROOT.$PHPFOLDER."libs/GUICommonUtils.php");
+include_once($ROOT.$PHPFOLDER."properties/Constants.php");
+
+if (!isset($_SESSION)) session_start() ;
+$userId = $_SESSION['user_id'] ;
+$principalId = $_SESSION['principal_id'] ;
+
+//Create new database object
+$dbConn = new dbConnect(); $dbConn->dbConnection();
+
+if (isset($_GET['DOCMASTID'])) $postDOCMASTID=mysql_real_escape_string(htmlspecialchars($_GET['DOCMASTID']));
+else if (isset($_POST['DOCMASTID'])) $postDOCMASTID=mysql_real_escape_string(htmlspecialchars($_POST['DOCMASTID']));
+else $postDOCMASTID="";
+
+include_once($ROOT.$PHPFOLDER."DAO/TransactionDAO.php");
+$transactionDAO = new TransactionDAO($dbConn);
+
+$adminDAO = new AdministrationDAO($dbConn);
+$hasRoleVP = $adminDAO->hasRole($userId, $principalId, ROLE_VIEW_PRICE);
+
+
+// this also doubles as the security check because this sql joins on user_principal_depot
+$mfT = $transactionDAO->getDocumentWithDetailItem($userId, $principalId, $postDOCMASTID);
+
+if (sizeof($mfT)==0) {
+  echo "You do not have access to this information, or order does not exist.";
+  return;
+}
+
+?>
+
+<!DOCTYPE html>
+<HTML>
+  <TITLE>Document - View</TITLE>
+<HEAD>
+  <STYLE type="text/css">
+
+    #wrapper{width:700px;text-align:left;}
+
+    #toolbar {font-size:12px;background:#047;padding:8px 10px}
+    #toolbar a img{margin:2px 5px 2px 0px;}
+    #toolbar a:hover{background:aliceBlue}
+    #toolbar a{margin-right:10px;float:left;background:#fff;text-align:center;display:block;border:1px solid #047;padding:0px 8px;line-height:36px;text-decoration:none;color:#666;font-weight:bold;}
+    #block{background:#fff;padding:20px 15px;border:1px solid #ccc;}
+    .dtitle{text-align:left;}
+    /*h2{color:#000;font-size:15px;line-height:25px;letter-spacing:0.2em;margin:20px 0px 5px 0px;}*/
+
+    /* print styles */
+    @media print {
+      #noprint {
+          visibility:hidden;
+          display:none;
+      }
+      #wrapper{
+        border:0px;
+      }
+      #block{padding:10px 0px;border:0px;}
+    }
+
+    table {font-size:12px;}
+    table.grid
+    {
+      border-collapse:collapse;
+    }
+    table.grid td, table.grid th
+    {
+    border:0px solid #fff;
+    }
+    table.grid th {background:#efefef;}
+    .bordUnderline{border-bottom:0px solid #333;height:30px;}
+
+</STYLE>
+<script type='text/javascript' language='javascript' src='<?php echo $ROOT.$PHPFOLDER ?>js/jquery.js'></script>
+</HEAD>
+
+<BODY style="font-family: Verdana,Arial,Helvetica,sans-serif;margin:0px;padding:0px;">
+
+<INPUT type="hidden" value="<?php echo $mfT[0]['dm_uid'] ?>" id="DOCMASTID">
+<INPUT type="hidden" value="<?php echo $mfT[0]['document_status_uid'] ?>" id="STATUSID">
+
+<!-- email -->
+<div align="center" >
+
+<?php
+ $filename = "images/logos/{$principalId}.jpg";
+ $file = HOST_SURESERVER_AS_USER.$PHPFOLDER.$filename;
+ $logo = ((file_exists($ROOT.$PHPFOLDER.$filename))?$file:HOST_SURESERVER_AS_USER.$PHPFOLDER."images/rt_powerby.gif");
+
+ $mfDD = $transactionDAO->getDeliveryDetails($postDOCMASTID, $userId);
+ $transporterName = ((isset($mfDD[0]))?$mfDD[0]["transporter_name"]:"");
+ $truckRegistration = ((isset($mfDD[0]))?$mfDD[0]["truck_registration"]:"");
+ $chepPalletNumber = ((isset($mfDD[0]))?$mfDD[0]["chep_pallet_number"]:"");
+
+?>
+
+<table id="wrapper" cellspacing="0" cellpadding="0">
+  <tr>
+     <td>
+      <div id="noprint"><!-- HIDE THIS PRINT AREA : START /--->
+        <div id="toolbar">
+          <a href="javascript:;" onclick='printHandler()'><img src="<?php echo $ROOT.$PHPFOLDER ?>images/print-icon.png" border="0" alt="" align="left" > PRINT</a>
+          <div style="clear:both;"></div>
+        </div>
+      </div><!-- HIDE THIS PRINT AREA : END /--->
+    </td>
+  </tr><tr>
+    <td>
+        <br>
+
+      <img src='<?php echo $logo; ?>' style="border:0;float:right;" >
+      <br style='clear:both;'>
+
+
+      <div  align="center" style="margin:30px 0px;">
+        <h1>Quotation Completion Certificate / Delivery Note</h1>
+        <h3><?php echo $mfT[0]['depot_name']; ?></h3>
+      </div>
+
+        <table border="0" cellpadding="6" cellspacing="0" width="100%" class="grid">
+          <tr>
+            <td width="120">Company:</td>
+            <td colSpan="3"><strong><?php echo $mfT[0]['principal_name']; ?></strong></td>
+          </tr>
+          <tr>
+            <td>Date:</td>
+            <td width="230"><strong><?php echo $mfT[0]['order_date']; ?></strong></td>
+            <td width="180">Transporter:</td>
+            <td width="150"><strong><?php echo $transporterName; ?></strong></td>
+          </tr>
+          <tr>
+            <td>Delivery Point:</td>
+            <td><strong><?php echo $mfT[0]['store_name']; ?></strong></td>
+            <td>Truck Registration:</td>
+            <td style=""><?php echo $truckRegistration; ?></td>
+          </tr>
+          <tr>
+            <td style='vertical-align:top;'>Address:</td>
+            <td><strong><?php echo $mfT[0]['deliver_add1']."<br>".$mfT[0]['deliver_add2']; ?></strong></td>
+            <td style='vertical-align:top;'>CHEP Pallet Number:</td>
+            <td style='vertical-align:top;'><?php echo $chepPalletNumber; ?></td>
+          </tr>
+          <tr>
+            <td style='vertical-align:top;'>PO Number:</td>
+            <td><?php echo $mfT[0]['customer_order_number']; ?></td>
+            <td>No of Pallets:</td>
+            <td style="color:blue;"></td>
+          </tr>
+        </table>
+
+        <div style="margin:50px 0px 10px 0px;"><strong>Line Item Details</strong></div>
+        <table border="0" cellpadding="6" cellspacing="0" width="100%" class="grid">
+          <tr>
+            <th  width="100">Product Code:</td>
+            <th  width="220"><strong>Description</strong></th>
+            <th  width="90">Quantity</th>
+            <th  width="90">Batch</th>
+            <th  width="90">Weight</th>
+          </tr>
+          <?php
+
+          $totalWeight = 0;
+          foreach($mfT as $row) {
+
+            echo "<TR style='margin:0;'>
+                      <TD nowrap class='detail' style='padding:8px; text-align:left' align='left'>{$row['product_code']}</TD>
+                      <TD nowrap class='detail' style='text-align:left' align='left'>{$row['product_description']}</TD>";
+
+
+
+            echo      "<TD nowrap class='detail'>{$row['document_qty']}</TD>
+                      <TD>{$row['batch']}</TD>
+                      <TD style='text-align:right;'>";
+            echo      number_format($row['weight']*$row['document_qty'],2,","," ");
+            echo      "</TD>
+                  </TR>";
+
+            $totalWeight += floatval($row['weight']*$row['document_qty']);
+
+          }
+
+          ?>
+
+          <tr>
+            <th  width="100"></td>
+            <th  width="220"></th>
+            <th  width="90"></th>
+            <th  width="90"></th>
+            <th  style='text-align:right;' width="90"><?php echo number_format($totalWeight,2,","," "); ?></th>
+          </tr>
+
+        </table>
+
+        <br><br>
+
+        <p>"GOODS RECEIVED IN GOOD ORDER"</p>
+        <br><br><br><br><br><br>
+        <p>Signature</p>
+
+        <br><br><br>
+
+        <div valign="top" style="text-align:left; font-size:10px;">
+          Printed by: <?php echo (isset($_SESSION['full_name'])?$_SESSION['full_name']:'na') . ' (' . (isset($_SESSION['user_id'])?$_SESSION['user_id']:'0') , ') '; ?>
+           @ <?php echo gmdate('Y-m-d H:i:s'); ?>
+        </div>
+
+        <br><br>
+
+

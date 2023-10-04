@@ -1,0 +1,179 @@
+
+#header_layer{position:absolute; z-index:500; top:0px; left:0; overflow:visible;width:100%; height:100px;background:red;}
+.icon-home {
+  width:58px;
+  height:48px;
+  background:url(../images/icon-home.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.icon-logout {
+  width:58px;
+  height:48px;
+  background:url(../images/icon-logout.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.icon-desktop {
+  width:58px;
+  height:48px;
+  background:url(../images/icon-desktop.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.mobile-background {
+  background-repeat:no-repeat;
+  background: url('../images/mobile-background.jpg');
+  background-size:100% 100%;
+}
+.mobile-menu-button {
+  height: 80px;
+  width:100%;
+  margin-top:20px;
+  border-radius:8px;
+  background: -webkit-linear-gradient(#54a6ef, #004477); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#54a6ef, #004477); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#54a6ef, #004477); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#54a6ef, #004477); /* Standard syntax */
+  cursor:pointer;
+  text-shadow: 1px 2px 0 #303030;
+  color:#cccccc;
+  font-size:18px;
+}
+/* you can also control input box borders with ~ outline:solid 10px silver */
+ input[type="text"], input[type="password"], input[type="number"], div.div-input {
+  border: none !important;
+  border-radius: 6px !important;
+  font-size:14px !important;
+  -webkit-border-radius: 6px !important;
+  height: 28px !important;
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,.4) !important;
+  -webkit-appearance: none !important;
+  background: white; /* dont make this !important as otherwise disabled wont work */
+ }
+ /* the below is excluded from above as the div.div-input (store input field) exceeds the 100% wrapper; */
+input[type="text"], input[type="password"], input[type="number"] {
+  padding: 0 12px 0 12px !important;
+ }
+input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+  outline: outline:solid 2px silver;
+  /* box-shadow: -1px -1px 3px 2px rgba(100,100,200,.5);*/ /* h-shadow, v-shadow, blur, spread, color, inset */
+}
+input[type="text"]:disabled, input[type="text"]:read-only {
+  color:#5c615c !important;
+  background:#eaeeea !important;
+}
+select { 
+    margin:0; 
+    padding:0; 
+    font-size:14px;
+    outline:none; 
+    font-family:inherit; box-sizing:border-box /* make sure you use the other vendor prefixes */; 
+}
+div.select { 
+    overflow:hidden; /* this hides the select's drop button */
+    padding:0; 
+    margin:0; 
+    background: white url(../images/formelements-select.png) no-repeat center right; 
+    /* this is the new drop button, in image form */
+    width:100%; 
+    /*
+    border-radius:2px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+    border: solid 1px #ccc;
+    */
+    border: none !important;
+    border-radius: 6px !important; 
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,.4) !important;
+    height:38px;
+}
+div.select select { 
+    width:115%; /* this percentage effectively extends the drop down button out of view */
+    background-color:transparent; /* this hides the select's background making any styling visible from the div */ 
+    background-image:none; 
+    -webkit-appearance: none; /* this is required for Webkit browsers */ 
+    border:none; 
+    box-shadow:none; 
+    padding:0.3em 0.5em; /* padding should be added to the select, not the div */
+    height:38px;
+}
+.mobile-label {
+ font-size:16px;
+ color:#eeeeee;
+ text-shadow: 1px 2px 0 #303030; 
+ line-height:28px;
+}
+.mobile-opt-button {
+  background: #7bc873;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  font-size: 16px;
+  width:100%;
+  border:0;
+  text-align:center;
+  border-radius: 6px;
+}
+.mobile-submit-button {
+  background: #006ca8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  font-size: 16px;
+  width:100%;
+  border:0;
+  text-align:center;
+  border-radius: 6px;
+}
+#userInfo {
+  margin: 0px !important;
+}
+a.header_principal {
+  margin:0px !important;
+  float:clear !important;
+}
+#headerMain {
+  height:68px;
+  background-position: top left;
+}
+
+
+/* @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) { */
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), 
+       only screen and (-o-min-device-pixel-ratio: 1.5/1), 
+       only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+       only screen and (min-device-pixel-ratio: 1.5) {
+       
+  .mobile-menu-button {
+    font-size:24px;
+  }
+  /* you can also control input box borders with ~ outline:solid 10px silver */
+  input[type="text"], input[type="password"], input[type="number"], div.div-input {
+    font-size:24px !important;
+    height: 48px !important;
+  }
+  select { 
+      font-size:24px;
+  }
+  div.select { 
+      height:48px;
+  }
+  div.select select { 
+      height:48px;
+  }
+  .mobile-label {
+   font-size:24px;
+   line-height:34px;
+  }
+  .mobile-opt-button {
+    font-size: 18px; /* buttons go off screen if too large */
+  }
+  .mobile-submit-button {
+    font-size: 24px;
+  }
+       
+}

@@ -1,0 +1,20 @@
+# This folder does not require access over HTTP
+# (the following directive denies access by default)
+
+#RewriteEngine On
+#Redirect 301 (.*)$ http://www1.retailtrading.net/$1
+
+#RewriteCond %{HTTP_HOST} ^olddomain.com$ [OR]
+#RewriteCond %{HTTP_HOST} ^www.olddomain.com$
+#RewriteRule (.*)$ http://www1.retailtrading.com/$1 [R=301,L]
+
+
+#IndexIgnore *
+#Site Rules
+#RewriteRule    ^home/?$    	index.php?pg=about    [NC,L]
+#RewriteRule    ^benefits/?$    index.php?pg=benefits    [NC,L]
+#RewriteRule    ^overview/?$    index.php?pg=overview    [NC,L]
+#RewriteRule    ^clients/?$    index.php?pg=clients    [NC,L]
+#RewriteRule    ^contact/?$    index.php?pg=contact    [NC,L]
+#RewriteRule    ^elogin/?$    index.php?pg=elogin    [NC,L]
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]

@@ -1,0 +1,259 @@
+<?php
+
+/* * ********************************************************************************************
+ * *
+ * *  Example - Create Sale, Order, Invoice, Credit Note
+ * *
+ * *****************ss*************************************************************************** */
+
+require_once 'ROOT.php';
+require_once $ROOT . 'PHPINI.php';
+
+require_once __DIR__ . "/../../../libs/api/dearsystems/DearRestAPI.php";
+
+
+//these will come from a constants file or other place!
+$apiBaseUri = "https://inventory.dearsystems.com/ExternalApi/v2/";
+$accountId = "8a6e4e85-8eb0-41af-b647-c97a7039d07f";
+$applicationKey = "a2d86a46-9b86-48bb-6b0e-4ea4980308d1";
+
+//construct api client
+$api = new DEARRestAPI($apiBaseUri, $accountId, $applicationKey);
+
+/*--------------------------------------------
+ *  STEP 1 : CREATE A SALE
+ *-----------------------------------------*/
+//construct the object for a new order
+$sale = (new DearSaleObj());
+//$sale->setAdditionalAttributes();
+//$sale->setAutoPickPackShipMode();
+$sale->setBillingAddress(
+    (new DearSaleBillingAddressObj())
+        ->setLine1("Bill line 1")
+        ->setLine2("Bill line 2")
+        ->setCity("Edenvale")
+        ->setPostcode("1609")
+        ->setState("Gauteng")
+        ->setCountry("ZAF")
+);
+//$sale->setCarrier();
+//$sale->setContact();
+$sale->setCurrencyRate(1);
+$sale->setCustomer("Letricia Oosthuizen");  //currently exists!
+//$sale->setCustomerID();
+//$sale->setCustomerReference();
+//$sale->setDefaultAccount();
+//$sale->setEmail();
+$sale->setLocation("PackLeader Warehouse"); //also looked up!
+//$sale->setNote();
+//$sale->setPhone();
+//$sale->setPriceTier();
+//$sale->setSaleOrderDate();
+$sale->setSalesRepresentative("DEFAULT billing contact");
+//$sale->setShipBy();
+$sale->setShippingAddress(
+    (new DearSaleShippingAddressObj())
+        ->setLine1("Ship line 1")
+        ->setLine2("Ship line 2")
+        ->setCity("Edenvale")
+        ->setState("Gauteng")
+        ->setCountry("ZAF")
+        ->setContact("Bob Dole")
+        ->setPostcode("1609")
+        //->setCompany()
+        ->setShipToOther(true)
+);
+
+//$sale->setShippingNotes();
+//$sale->setSkipQuote();
+//$sale->setTaxInclusive();
+//$sale->setTaxRule();
+//$sale->setTerms();
+
+//debug request
+//var_dump(json_encode($sale->getArray(), JSON_PRETTY_PRINT));
+
+//submit to api
+$saleResponse = $api->CreateSale($sale);
+
+if (!$saleResponse->getSuccess()) {
+    echo "Create Sale Error!";
+    var_dump($saleResponse->getBody());
+    exit;
+}
+
+$saleId = $saleResponse->getBody()['ID'];
+$saleOrderNumber = $saleResponse->getBody()['Order']['SaleOrderNumber'];
+$saleInvoiceTaskID = $saleResponse->getBody()['Invoices'][0]['TaskID'];
+$saleInvoiceNumber = $saleResponse->getBody()['Invoices'][0]['InvoiceNumber'];
+
+//var_dump($saleResponse->getBody());
+
+print_r("saleId: " . $saleId . PHP_EOL);
+print_r("saleOrderNumber: " . $saleOrderNumber . PHP_EOL);
+
+/*--------------------------------------------
+ *  STEP 2 : CREATE A SALES ORDER
+ *-----------------------------------------*/
+//construct the object for a new order
+$order = (new DearSalesOrderObj())
+    ->setSaleID($saleId)
+    ->setSaleOrderNumber($saleOrderNumber)
+    //->setMemo()
+    ->setStatus("AUTHORISED");
+//->setTax()
+//->setTotal()
+//->setTotalBeforeTax();
+
+//add multi lines to the order here
+$line1 = (new DearSalesOrderLineItemObj())
+    ->setProductID("3775a39d-26e6-47fd-9190-bf77a6ce274a")
+    ->setName("Chardonnay Bulk TEST 1")
+    ->setSKU("BULK TEST 1")
+    ->setQuantity(100)
+    ->setPrice(99.12)
+    ->setDiscount(0)
+    ->setTax(0)
+    ->setTaxRule("No VAT")
+    ->setComment("my comment!")
+    ->setTotal(99.12 * 100);
+
+//add the line to the order object
+$order->addLine($line1);
+$order->setTotal(99.12 * 100);
+
+//debug request
+//var_dump(json_encode($order->getArray(), JSON_PRETTY_PRINT));
+
+$orderResponse = $api->CreateSalesOrder($order);
+
+if (!$orderResponse->getSuccess()) {
+    echo "Create Sale Order Error!";
+    var_dump($orderResponse->getBody());
+    exit;
+}
+
+//var_dump($orderResponse->getSuccess());
+//var_dump($orderResponse->getBody());
+
+
+/*--------------------------------------------
+ *  STEP 3 : CREATE A SALES INVOICE
+ *-----------------------------------------*/
+//construct the object for a new order
+$invoice = (new DearSalesInvoiceObj())
+    ->setSaleID($saleId)
+    ->setTaskID($saleInvoiceTaskID)
+    ->setInvoiceDate("2022-01-14T13:28:33.363")
+    ->setInvoiceDueDate("2022-01-15T13:28:33.363")
+    ->setStatus("AUTHORISED")
+    //->setBillingAddressLine1()
+    //->setBillingAddressLine2()
+    //->setCombineAdditionalCharges()
+    ->setCurrencyConversionRate(1)
+    //->setLinkedFulfillmentNumber(1)
+    //->setMemo()
+;
+
+
+//add multi lines to the order here
+$line1 = (new DearSalesInvoiceLineItemObj())
+    ->setProductID("3775a39d-26e6-47fd-9190-bf77a6ce274a")
+    ->setName("Chardonnay Bulk TEST 1")
+    ->setSKU("BULK TEST 1")
+    ->setQuantity(80)
+    ->setPrice(99.12)
+    ->setDiscount(0)
+    ->setTax(0)
+    ->setTaxRule("No VAT")
+    ->setComment("my comment!")
+    ->setAccount("001: Business Nedbank") //<--- another thing we need to store or lookup
+    ->setTotal(99.12 * 80);
+
+//add the line to the order object
+$invoice->addLine($line1);
+
+//debug request
+//var_dump(json_encode($invoice->getArray(), JSON_PRETTY_PRINT));
+
+$invoiceResponse = $api->CreateSalesInvoice($invoice);
+
+if (!$invoiceResponse->getSuccess()) {
+    echo "Create Sale Invoice Error!";
+    var_dump($invoiceResponse->getBody());
+    exit;
+}
+
+//var_dump($invoiceResponse->getBody());
+
+
+/*--------------------------------------------
+ *  STEP 4 : OPTIONALLY - CREATE A SALES CREDIT NOTE
+ *-----------------------------------------*/
+
+//we need to update the shipped status to append a credit note...
+
+/*
+$pickedLines = $invoice->getArray()['Lines'];
+foreach($pickedLines as $key => $line){
+    $pickedLines[$key]['Location'] = "PackLeader Warehouse";
+}
+$updatePickResponse = $api->UpdateSaleFulfilment("pick", $saleId, "AUTHORISED", $pickedLines);
+
+var_dump($updatePickResponse->getBody());
+
+
+$updatePackResponse = $api->UpdateSaleFulfilment("pack", $saleId, "AUTHORISED", $invoice->getArray()['Lines']);
+$updateShipResponse = $api->UpdateSaleFulfilment("ship", $saleId, "AUTHORISED", $invoice->getArray()['Lines']);
+
+var_dump($updateShipResponse->getBody());
+
+$updatedSaleResponse = $api->GetSaleById($saleId);
+
+var_dump($updatedSaleResponse->getBody());
+
+die();
+
+//construct the object for a new order
+$credit = (new DearSalesCreditNoteObj())
+    ->setSaleID($saleId)
+    ->setTaskID($saleInvoiceTaskID)
+    ->setCreditNoteDate("2022-01-14T13:28:33.363")
+    ->setStatus("AUTHORISED")
+    ->setCreditNoteConversionRate(1)
+    ->setCreditNoteInvoiceNumber($saleInvoiceNumber)
+    //->setCombineAdditionalCharges()
+    //->setMemo()
+;
+
+
+//add multi lines to the order here --- credit notes take the invoice line item obj
+$line1 = (new DearSalesInvoiceLineItemObj())
+    ->setProductID("3775a39d-26e6-47fd-9190-bf77a6ce274a")
+    ->setName("Chardonnay Bulk TEST 1")
+    ->setSKU("BULK TEST 1")
+    ->setQuantity(10)
+    ->setPrice(99.12)
+    ->setDiscount(0)
+    ->setTax(0)
+    ->setTaxRule("No VAT")
+    ->setComment("my comment!")
+    ->setAccount("001: Business Nedbank") //<--- another thing we need to store or lookup
+    ->setTotal(99.12 * 10);
+
+//add the line to the order object
+$credit->addLine($line1);
+
+//debug request
+//var_dump(json_encode($credit->getArray(), JSON_PRETTY_PRINT));
+
+$creditResponse = $api->CreateSalesCreditNote($credit);
+
+if (!$creditResponse->getSuccess()) {
+    echo "Create Sale Credit Note Error!";
+    var_dump($creditResponse->getBody());
+    exit;
+}
+
+var_dump($creditResponse->getBody());
+*/

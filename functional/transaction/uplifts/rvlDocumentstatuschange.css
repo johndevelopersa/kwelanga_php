@@ -1,0 +1,26 @@
+.outer-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 75%;
+    margin: auto;
+}
+
+.stripe:nth-child(even) {
+    background-color: lightgray;
+}
+
+.stripe:nth-child(odd) {
+    background-color: darkgray;
+}
+
+.custom-button {
+    background-color: black;
+    color: white;
+}
+
+.updated-message {
+    background-color: lightgreen;
+    width: 20%;
+    margin: left;
+    text-align: left;
+}

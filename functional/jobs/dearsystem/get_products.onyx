@@ -1,0 +1,52 @@
+<?php
+
+/* * ********************************************************************************************
+ * *
+ * *  Example - Get Products from DEAR System API.
+ * *
+ * *****************ss*************************************************************************** */
+
+require_once 'ROOT.php';
+require_once $ROOT . 'PHPINI.php';
+
+require_once __DIR__ . "/../../../libs/api/dearsystems/DearRestAPI.php";
+
+//these will come from a constants file or other place!
+//require_once __DIR__ . "/../goosebumps/GooseBumpsConstants.php";
+$apiBaseUri = "https://inventory.dearsystems.com/ExternalApi/v2/";
+$accountId = "8a6e4e85-8eb0-41af-b647-c97a7039d07f";
+$applicationKey = "a2d86a46-9b86-48bb-6b0e-4ea4980308d1";
+
+//construct api client
+$api = new DEARRestAPI($apiBaseUri, $accountId, $applicationKey);
+
+//sample #1 get product by id
+print_r("GetProductById:" . PHP_EOL);
+$productResponse = $api->GetProductById("3775a39d-26e6-47fd-9190-bf77a6ce274a");
+
+//response is successful and we got a single product!
+if ($productResponse->getResponse()->getSuccess() && $productResponse->getTotal() === 1) {
+    $product = $productResponse->getProducts()[0];
+
+
+    print_r("ID: " . $product->getID() . PHP_EOL);
+    print_r("NAME: " . $product->getName() . PHP_EOL);
+    print_r("SKU: " . $product->getSKU() . PHP_EOL);
+
+}
+
+//sample #2 get products
+print_r("GetProducts:" . PHP_EOL);
+$productsListResponse = $api->GetProducts(1, 500);
+if ($productsListResponse->getResponse()->getSuccess()) {
+
+    print_r("Total:" . $productsListResponse->getTotal() . PHP_EOL);
+    print_r($productsListResponse->getPage());
+
+    foreach ($productsListResponse->getProducts() as $product) {
+        print_r("ID: " . $product->getID() . PHP_EOL);
+        print_r("NAME: " . $product->getName() . PHP_EOL);
+        print_r("SKU: " . $product->getSKU() . PHP_EOL);
+        print_r("---------------------------" . PHP_EOL);
+    }
+}

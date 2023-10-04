@@ -1,0 +1,314 @@
+<?php
+    include_once('ROOT.php'); include_once($ROOT.'PHPINI.php');
+    require_once($ROOT.$PHPFOLDER."functional/main/access_control.php");
+    include_once($ROOT.$PHPFOLDER."DAO/TripsheetDAO.php");
+    include_once($ROOT.$PHPFOLDER."properties/Constants.php");
+		include_once($ROOT.$PHPFOLDER.'TO/SequenceTO.php');
+		include_once($ROOT.$PHPFOLDER.'DAO/SequenceDAO.php');
+		include_once($ROOT.$PHPFOLDER.'libs/GUICommonUtils.php');
+
+?>
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+
+		<TITLE>Document Selection</TITLE>
+
+		<link href='<?php echo $DHTMLROOT.$PHPFOLDER ?>css/1_default.css' rel='stylesheet' type='text/css'>
+		<link href='<?php echo $DHTMLROOT.$PHPFOLDER ?>css/kos_standard_screen.css' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" language="javascript" src="<?php echo $DHTMLROOT.$PHPFOLDER ?>js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo $DHTMLROOT.$PHPFOLDER ?>js/dops_global_functions.js"></script>
+
+		</HEAD>
+<?php
+
+    if (!isset($_SESSION)) session_start() ;
+      $userUId     = $_SESSION['user_id'] ;
+      $principalId = $_SESSION['principal_id'] ;
+      $depotId     = $_SESSION['depot_id'] ;
+      $systemId    = $_SESSION["system_id"];
+      $systemName  = $_SESSION['system_name'];
+      
+      $nelarray = array('392', '393', '396', '397', '179', '400', '401', '417');
+
+      // Create new database object
+      $dbConn = new dbConnect(); 
+      $dbConn->dbConnection();
+      
+      $errorTO = new ErrorTO;
+
+      if(isset($_POST["CLEARFILTER"])) {
+         unset($_POST["SUBMITFILTER"]);
+      }
+      if(isset($_POST["SUBMITFILTER"])) {
+	
+           if (isset($_POST["PRUID"]))    $pRuid        = test_input($_POST["PRUID"]);    else $pRuid         = '0'; 
+           if (isset($_POST['WAREA']))    $wArea        = test_input($_POST['WAREA']);    else $wArea         = '0';
+           if (isset($_POST["WDOCNO"]))   $postWDOCNO   = test_input($_POST["WDOCNO"]);   else $postWDOCNO    = '0';
+           if (isset($_POST["WINVDATE"])) $postWINVDATE = test_input($_POST["WINVDATE"]); else $postWINVDATE  = '0';
+           if (isset($_POST['WSTORE']))   $wStore       = test_input($_POST['WSTORE']);   else $wStore        = '0';
+           if (isset($_POST["WNDD"]))     $postWNDD     = test_input($_POST["WNDD"]);     else $postWNDD      = '0';
+       
+           $TripsheetDAO = new TripsheetDAO($dbConn);
+           $mfDD = $TripsheetDAO->getTripSheetInvoicesNew($depotId, 
+                                                          $principalId,
+                                                          $pRuid, 
+                                                          $wArea,
+                                                          $postWDOCNO,
+                                                          $postWINVDATE,
+                                                          $wStore,
+                                                          $postWNDD);
+      }   
+      $TripsheetDAO = new TripsheetDAO($dbConn);     
+      $mfTS = $TripsheetDAO->getTripSheetTransporter2($depotId, '', '');
+     
+      $cl = "odd"; ?>
+     
+      <body>
+         <?php	
+
+         if (isset($_POST['FINISH'])) {
+            if (isset($_POST['SELECT'])) {
+            	
+                if ($_POST['TRANSPORTER'] <> 'Select Transporter' ) {
+            	       $seqVal="000000";
+                     $list = implode(",",$_POST['SELECT']);
+                     $sequenceDAO = new SequenceDAO($dbConn);
+                     $sequenceTO = new SequenceTO;
+                     $errorTO = new ErrorTO;
+                     $sequenceTO->sequenceKey=LITERAL_SEQ_TRIPSHEET;
+                     if($depotId == 244) {
+                         $sequenceTO->depotUId = 230;
+                     } else {
+                         $sequenceTO->depotUId = $depotId;	
+                     }
+                     $sequenceTO->depotUId = $depotId;
+                     $result=$sequenceDAO->getSequence($sequenceTO,$seqVal);
+                     if ($result->type!=FLAG_ERRORTO_SUCCESS) { ?>
+                         <script type='text/javascript'>parent.showMsgBoxInfo('Trip Sheet Sequence not set up')</script>  
+                        <?php
+                        return $result;
+                     }
+                     
+	                   $list             = implode(",",$_POST['SELECT']);
+	                   $transporterID    = $_POST['TRANSPORTER'];		            
+	                   $tripSheetNumber  = $seqVal;
+                     $tripSheetDate    = date("Y-m-d H:i:s") ;
+	                   $tripSheetUser    = $userUId;
+// *** Deprecated	                                 
+                     include_once($ROOT.$PHPFOLDER."DAO/PostTransactionDAO.php");
+                     $postTransactionDAO = new PostTransactionDAO($dbConn);
+                     $rTO = $postTransactionDAO->setTripsheetDetails($list, $transporterID, $tripSheetNumber, $tripSheetDate, $tripSheetUser,$_POST['SELECT'] );
+// *** Deprecated	
+
+                     $TripsheetDAO = new TripsheetDAO($dbConn);
+                     $errorTO = $TripsheetDAO->setTripsheetHeaderNew($depotId, $tripSheetNumber, $transporterID, $tripSheetDate, $tripSheetUser);
+                  
+                     if($errorTO->type==FLAG_ERRORTO_SUCCESS) {
+                           $tsHdrUid = $errorTO->identifier; 	
+                     } else {
+                     	     echo "Bomb Out - Tripsheet Create Error Contact Support (TS001)";
+                     }
+                     
+                     foreach($_POST['SELECT'] as $trow) {
+                          $TripsheetDAO = new TripsheetDAO($dbConn);
+                          $errorTO = $TripsheetDAO->setTripsheetDetailNew($tsHdrUid, $trow);
+                     } 
+                    
+                     if ($errorTO->type==FLAG_ERRORTO_SUCCESS) {
+                        $dbConn->dbinsQuery("commit");
+                        $loadSheetArray = array('392','393','396','397'); ?>
+                        <script type='text/javascript'>parent.showMsgBoxInfo('Trip Sheet Successfully Created')
+                        
+                            <?php 
+                            $ingarray = array('222');
+                            $honarray = array('230', '244');
+                            $cleararray = array('163','186','236','432');
+                            
+                            
+                            if(in_array($depotId, $ingarray)) { ?>
+                                window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/presentationManagement.php?TYPE=CUSTOMNTS294&FINDNUMBER=<?PHP echo $tripSheetNumber; ?>');
+                            <?php 
+                            } elseif(in_array($depotId, $honarray)) { ?>
+                                window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/presentationManagement.php?TYPE=CUSTOMTS305&FINDNUMBER=<?PHP echo $tripSheetNumber; ?>');
+                            <?php 
+                            } elseif(in_array($depotId, $cleararray)) { ?>
+                                window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/presentationManagement.php?TYPE=CUSTOMTS216&FINDNUMBER=<?PHP echo $tripSheetNumber; ?>');
+                            <?php                
+                            } elseif(in_array($depotId, $nelarray)) { ?>
+                                  window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/presentationManagement.php?TYPE=CUSTOMTSNEL&FINDNUMBER=<?PHP echo $tripSheetNumber; ?>');
+                            <?php } else { ?>
+                                window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/presentationManagement.php?TYPE=tripsheet&FINDNUMBER=<?PHP echo $seqVal; ?>');
+                            <?php 
+                            } 
+                            if(isset($_POST['LOADSHEET']) && in_array($depotId, $nelarray)) { ?>
+                                window.open('<?php echo $ROOT.$PHPFOLDER ?>functional/presentations/view/load_sheet_document_multi_version4.php?TRIPNO=<?PHP echo $tripSheetNumber; ?>');    
+                      	    <?php                         	
+                            } ?>
+                        </script> 
+                        <?php
+                        unset($mfDD);
+                        unset($mfTS) ;
+                     }  else { 
+                            $dbConn->dbinsQuery("rollback"); ?>
+                            <script type='text/javascript'>parent.showMsgBoxError('Trip Sheet Not Created')</script>    
+                     <?php 
+                     }
+                } else { ?>
+                         <script type='text/javascript'>parent.showMsgBoxError('No Transporter selected')</script>  
+                        <?php
+                        unset($mfDD);
+                        unset($mfTS) ;              	
+                }   
+            } else { ?>
+                         <script type='text/javascript'>parent.showMsgBoxError('No Documents selected')</script>  
+                         <?php
+                         unset($mfDD);
+                         unset($mfTS) ; 
+            }
+         } ?>
+         <center>
+             <form name='Invoices' method=post target=''>	
+                 <table width="90%"; style="border:none">
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                          <td class="det1" colspan="11" style="text-align:center;">Select Invoices for Tripsheet</td>
+                     </tr>    
+                     <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                          <td width="2%";  style="border:none;">&nbsp;</td>
+                          <td width="13%"; style="border:none;">&nbsp;</td>
+                          <td width="13%"; style="border:none;">&nbsp;</td>
+                          <td  width="13%"; style="border:none;">&nbsp;</td>
+                          <td  width="13%"; style="border:none;">&nbsp;</td>
+                          <td  width="8%";  style="border:none;">&nbsp;</td>
+                          <td  width="8%";  style="border:none;">&nbsp;</td>
+                          <td  width="8%";  style="border:none;">&nbsp;</td>
+                          <td  width="8%";  style="border:none;">&nbsp;</td>
+                          <td  width="4%";  style="border:none;">&nbsp;</td>
+                          <td  width="9%";  style="border:none;">&nbsp;</td>
+                          <td  width="1%";  style="border:none;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+      	                 <td colspan="1">&nbsp</td>
+                         <td class=det2 colspan="3" style="text-align:center";><INPUT TYPE="submit" class="submit" name="SUBMITFILTER" value= "Submit Filter">&nbsp;
+                                                                    <INPUT TYPE="submit" class="submit" name="CLEARFILTER"  value= "Clear Filter"></td>
+                         <td colspan="5">&nbsp</td>
+                         <td colspan="2">&nbsp</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                         <td colspan="1">&nbsp</td>
+                         <td  class="head1" style="text-align:left; padding-left: 15px;">Principal</td>
+                         <td  class="head1" style="text-align:left; padding-left: 15px;">Area</td>
+                         <td  class="head1" style="text-align:left; padding-left: 15px;">Doc&nbsp;No</td>
+                         <td  class="head1" style="text-align:left; padding-left: 15px;">From&nbsp;Inv&nbsp;Date</td>
+                         <td  class="head1" colspan="3" style="text-align:left; padding-left: 15px;">Store</td>
+                         <td  class="head1" style="text-align:left; padding-left: 15px;">Cases</td>
+                         <td  class="head1" colspan="1" style="text-align:left; padding-left: 15px;">NDD</td>
+                         <td  class="head1" colspan="1" style="text-align:left; padding-left: 15px;">Re&nbsp;Deliver</td>
+                         <td  class="head1" rowspan="2" >Select<br><a href="javascript:;" onClick="selectAll('SELECT[]', 1);">All</a>
+                                                                   <a href="javascript:;" onClick="selectAll('SELECT[]', 0);">None</a></td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($class); ?>">
+                         <td colspan="1">&nbsp</td>
+                         <td class="det1" colspan="1" style="text-align:left";><INPUT TYPE="TEXT" size="8"  name="PRUID"    value= "" ></td>
+                         <td class="det1" colspan="1" style="text-align:left";><INPUT TYPE="TEXT" size="8"  name="WAREA"    value= "" ></td>
+                         <td class="det1" colspan="1" style="text-align:left";><INPUT TYPE="TEXT" size="5"  name="WDOCNO"   value= "" ></td>
+                         <td class="det1" colspan="1" style="text-align:left";><INPUT TYPE="TEXT" size="10" name="WINVDATE" value= "" placeholder="YYYY-MM-DD"  ></td>
+                         <td class="det1" colspan="3" style="text-align:left";><INPUT TYPE="TEXT" size="15" name="WSTORE"   value= "" ></td>
+                         <td colspan="1">&nbsp</td>
+                         <td class="det1" colspan="1" style="text-align:left";><INPUT TYPE="TEXT" size="2"  name="WNDD"     value= "" ></td>
+                         <td colspan="1">&nbsp</td>
+                     </tr>
+                     <?php
+                     if(count($mfDD) == 0) { ?>
+                          <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                               <td  colspan="1">&nbsp</td>
+                               <td  class="det3" colspan= "10" style="text-align:left; color:Red;">No Invoices selected - Use filters</td>
+                               <td  colspan="1">&nbsp</td>
+                          </tr> 
+                          <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                               <td  colspan="12" style="text-align:center;">&nbsp;</td>
+                          </tr>
+                     <?php        
+                     } else {         
+                     
+                     foreach ($mfDD as $row) { ?>
+                          <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                               <td  colspan="1">&nbsp</td>
+                               <td class="detN12" style="text-align:left;"><?php echo $row['Principal'];?></td>
+                               <td class="detN12" style="text-align:left;"><?php echo $row['W_Area'];?></td>
+                               <td class="detN12" style="text-align:left;"><?php echo $row['Docno'];?></td>
+                               <td class="detN12" style="text-align:left;"><?php echo $row['Invoice Date'];?></td>
+                               <td class="detN12" colspan="3" style="text-align:left;"><?php echo $row['Store'];?></td>
+                               <td class="detN12" style="text-align:center;"><?php echo $row['Cases'];?></td>
+                               <td class="detN12" style="text-align:center;"><?php echo $row['NDD'];?></td>
+                               <?php if($row['Redeliver'] == '90') { $reDelivery = 'Yes';} else { $reDelivery = '';} ?>
+                               <td class="detN12" style="text-align:center;"><?php echo $reDelivery;?></td>
+                               <td class="detN12" style="text-align:center;"><INPUT TYPE="checkbox" name="SELECT[]" value= "<?php echo $row['dm_uid'];?>"></td>
+                          </tr>
+                     <?php  
+                     }
+                     } ?>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                               <td colspan="12" style="text-align:center;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                               <td colspan="4" style="text-align:left;">&nbsp;</td>
+                         <td class="det1" colspan="4" style="text-align:left;">Select Transporter</td>                
+                         <td colspan="4"  style="text-align:center;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                         <td colspan="12" style="text-align:center;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                         <td colspan="4" style="text-align:center;">&nbsp;</td>
+                         <td colspan="4">
+                            <select name="TRANSPORTER" id="TRANSPORTER">
+                               <option value="Select Transporter">Select Transporter</option>
+                               <?php foreach($mfTS as $row) { ?>
+                                    <option value="<?php echo $row['uid']; ?>"><?php echo $row['name']; ?></option>
+                               <?php } ?>
+                            </select>
+                         </td> 
+                         <?php 
+                         if(in_array($depotId, $nelarray)) { ?>
+                              <td class="det1" colspan="3" style="text-align:center";>Print&nbsp;Load&nbsp;Sheet&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE="checkbox" name="LOADSHEET" value= "1" CHECKED></td>
+                         <?php                              	
+                         } else { ?>
+                              <td class="det1" colspan="3" style="text-align:center";>&nbsp</td>
+                         <?php 	
+                         } ?>
+                         <td colspan="1" style="text-align:center;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                         <td colspan="12" style="text-align:center;">&nbsp;</td>
+                     </tr>
+                     <tr class="<?php echo GUICommonUtils::styleEO($cl); ?>">
+                         <td colspan="4" style="text-align:center;">&nbsp;</td>
+                         <td colspan="4"><INPUT TYPE="submit" class="submit" name="FINISH" value= "Add to Trip Sheet"></td>
+                         <td colspan="4" style="text-align:center;">&nbsp;</td>
+                     </tr>
+                 </table>
+             </form>
+         </center> 
+      </body>
+ </HTML>
+
+ <script type="text/javascript" defer>
+     function selectAll(elementName, flag){
+          $("input[name='"+elementName+"']").each( function(){$(this).attr("checked",((flag == 1)?true:false));})
+     }
+     function setFocusToTextBox(){
+         document.getElementById("PRUID").focus();
+     }    
+</script>
+<?php
+ function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  if($data=='') { $data=0; }
+  
+  return $data ; 
+
+}  
+?>
