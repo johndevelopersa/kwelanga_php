@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
       //$result;
       ?>
       <script type='text/javascript'>
-      var errorMessage = "<?php echo $result."|".$prinId."|".$docNum; ?>"; 
+      var errorMessage = "<?php echo $result."|".$prinId."|".$docNum."|".$mode."."+$_SESSION['mode']; ?>"; 
       parent.showMsgBoxError(errorMessage)</script>
       <?php	 
       //$message = 'Error: query failed ' . $dbConn->
