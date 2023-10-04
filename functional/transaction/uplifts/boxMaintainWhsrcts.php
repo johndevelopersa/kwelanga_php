@@ -84,11 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
       <script type='text/javascript'>
       var errorMessage = "<?php echo $result."|".$prinId."|".$docNum; ?>"; 
       parent.showMsgBoxError(errorMessage)</script>
-      <?php	
-      $message = $result;
-      $mode="U";
-      $_SESSION['mode'] = $mode;
-      echo "Mode: $mode, Session Mode: {$_SESSION['mode']}";
+      <?php	 
       //$message = 'Error: query failed ' . $dbConn->
       //error;
     }
@@ -102,6 +98,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
       // $row['invoice_number'];
       $reason = '';
       $status = 'A';
+      $message = $result;
+      $mode="U";
+      $_SESSION['mode'] = $mode;
+      echo "Mode: $mode, Session Mode: {$_SESSION['mode']}";
       //$row['document_status_uid'];
     }
     //else
